@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toobar">65dp</dimen>
+    <dimen name="imagebar">60dp</dimen>
+    <dimen name="tv_margin">10dp</dimen>
+    <dimen name="textsize">20dp</dimen>
+    <dimen name="textName">15dp</dimen>
+    <dimen name="img_return">37dp</dimen>
+    <dimen name="img_size">20dp</dimen>
+</resources>

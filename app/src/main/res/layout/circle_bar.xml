@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/toobar"
+    android:background="@color/t2">
+<com.example.myapplication.view.CircleImageView
+    android:id="@+id/image_circle"
+    android:layout_width="@dimen/imagebar"
+    android:layout_height="@dimen/imagebar"
+    android:layout_marginLeft="10dp"
+    android:layout_centerVertical="true"
+    />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+    <ImageView
+        android:id="@+id/iv_upload"
+        android:layout_width="@dimen/imagebar"
+        android:layout_height="@dimen/imagebar"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>

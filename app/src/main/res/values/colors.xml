@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="as">#449de5</color>
+    <color name="doctxt">#323232</color>
+    <!-- tab color -->
+    <color name="category_item_pressed_color">#D9D9D9</color>
+    <color name="category_item_normal_color">#F5F5F5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#ff060000</color>
+    <color name="base_tab_indicator_color">#33B5E5</color>
+    <color name="base_tab_indicator_color1">#b88d59</color>
+    <color name="base_tab_indicator_color2">#083048</color>
+    <color name="transparent">#00000000</color>
+    <color name="A1">#f6701d</color>
+    <color name="base_list_desc_color">#ff808080</color>
+
+    <color name="cl_snappingstepper_button_normal">#237bb6</color>
+    <color name="cl_snappingstepper_button_press">#1f567b</color>
+    <color name="cl_snappingstepper_text_bg">#F8F8FF</color>
+    <color name="cl_snappingstepper_text">#000000</color>
+    <color name="btn1">#D8BFD8</color>
+    <color name="btn2">#FFF0F5</color>
+    <color name="a2">#e21b1b</color>
+    <color name="b1">#c6d7e8</color>
+    <color name="t">#b7b3b3</color>
+    <color name="b11">#e0e0e0</color>
+    <color name="b2">#ffffff</color>
+    <color name="fragment_bottom_common">#A0A0A2</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="t6bb93f">#5cc0a5</color>
+    <color name="tbdbdbd">#bdbdbd</color>
+    <color name="sz">#477af3</color>
+    <color name="t7d7d7d">#7d7d7d</color>
+    <color name="login_psd">#c8c9ca</color>
+    <color name="z1">#155a89</color>
+    <color name="cousb">#d2e3fe</color>
+    <color name="b12">#c9c9c9</color>
+    <color name="t1">#ff7800</color>
+    <color name="t2">#FF7100</color>
+    <color name="t3">#ff1828</color>
+    <color name="t4">#00ba04</color>
+    <color name="t5">#d71aff</color>
+    <color name="t6">#666666</color>
+    <color name="t7">#6da0f2</color>
+
+    <color name="colorPrimary1">#197fee</color>
+    <color name="colorPrimaryDark1">#197fee</color>
+    <color name="colorAccent1">#197fee</color>
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c099cc00</color> <!-- Android standard ICS color -->
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="linecharttable">#E2E2E2</color>
+    <color name="linechartstorke">#979797</color>
+    <color name="linechartCoordinate">#949494</color>
+    <color name="toplinechart">#35BF84</color>
+    <color name="bottom">#FD6E46</color>
+    <color name="divider_line">#e2e2e2</color>
+    <color name="mask_color">#88888888</color>
+    <color name="gray">#cccccc</color>
+    <color name="drop_down_selected">#7B1FA2</color>
+    <color name="drop_down_unselected">#111111</color>
+    <color name="check_bg">#f2f2f2</color>
+    <color name="textsel">#0398FF</color>
+    <color name="prompt_success">#31c27c</color>
+    <color name="prompt_error">#ff0000</color>
+    <color name="prompt_warning">#f0633d</color>
+</resources>

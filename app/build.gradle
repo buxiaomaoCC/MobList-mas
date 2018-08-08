@@ -1,0 +1,153 @@
+apply plugin: 'com.android.application'
+// 添加插件
+apply plugin: 'com.mob.sdk'
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        //声明一个渠道的维度
+        flavorDimensions 'default'
+    }
+    signingConfigs {
+        config {
+            keyAlias '123456'
+            keyPassword '123456'
+//            storeFile file('D:/DavidAndroidProjectTools.jks')
+            storeFile file('D:\\jks\\WeChat.jks')
+            storePassword '123456'
+        }
+    }
+//    /*配置渠道*/
+//    productFlavors {
+//        shouji_oppo {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "shouji_oppo"]
+//        }
+//        shouji_xiaomi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "shouji_xiaomi"]
+//        }
+//        pingtai_tengxun {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "pingtai_tengxun"]
+//        }
+//        pingtai_ali {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "pingtai_ali"]
+//        }
+//        pingtai_360 {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "pingtai_360"]
+//        }
+//        pingtai_baidu {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "pingtai_baidu"]
+//        }
+//        shouji_vivo {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "shouji_vivo"]
+//        }
+//        shouji_sanxing {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "shouji_sanxing"]
+//        }
+//        shouji_meizu {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "shouji_meizu"]
+//        }
+//        shouji_leshi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "shouji_leshi"]
+//        }
+//        shouji_kupai {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "shouji_kupai"]
+//        }
+//        shouji_lianxiang {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "shouji_lianxiang"]
+//        }
+//        shouji_huawei {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "shouji_huawei"]
+//        }
+//        shouji_chuizi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "shouji_chuizi"]
+//        }
+//    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+//        lintOptions {
+//            checkReleaseBuilds false
+//            abortOnError false
+//        }
+    }
+    allprojects {
+        repositories {
+            mavenCentral()
+        }
+    }
+}
+// 在MobSDK的扩展中注册MobPush的相关信息
+MobSDK {
+    appKey "26600cc144c35"
+    appSecret "b22f5d5117ed5dd0193a54e6ceab512d"
+    SMSSDK {}
+    MobPush {}
+    MobIM {}
+    ShareSDK {
+        //平台配置信息
+        devInfo {
+            SinaWeibo {
+                appKey "176420131"
+                appSecret "1febe0615691b4b856c635af5239e812"
+                callbackUri "http://www.sharesdk.cn"
+                shareByAppClient true
+            }
+            Wechat {
+                appId "wxa0cb993ebf35692f"
+                appSecret "fd7f6a231613918f06d0b08520477eb2"
+                shareByAppClient true
+            }
+            QQ {
+                appId "1106973116"
+                appKey "R03ozguZkaTUHWNg"
+                shareByAppClient true
+            }
+            WechatMoments{
+                appId "wxa0cb993ebf35692f"
+                appSecret "fd7f6a231613918f06d0b08520477eb2"
+                shareByAppClient true
+            }
+        }
+    }
+
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    //    implementation 'com.android.support:support-v4:28.0.0-alpha3'
+    implementation 'com.android.support:support-v4:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.hyman:flowlayout-lib:1.1.2'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.1'
+    implementation 'com.bigkoo:convenientbanner:2.0.5'
+    implementation files('libs/alipaySdk-20161222.jar')
+    implementation 'com.android.support:multidex:1.0.1'
+    /*友盟统计需要的最新版本组件化基础库和统计SDK*/
+    implementation 'com.umeng.sdk:common:latest.integration'
+    implementation 'com.umeng.sdk:analytics:latest.integration'
+    implementation project(':IMKit')
+//    implementation project(':Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable_with_CallKit')
+}

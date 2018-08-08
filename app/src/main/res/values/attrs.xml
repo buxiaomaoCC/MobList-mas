@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MycircleView">
+        <attr name="percent_circle_grivity">
+           
+        </attr>
+
+        <attr name="percent_circle_color" format="dimension"></attr>
+        <attr name="percent_circlr_image" format="dimension"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+</resources>
