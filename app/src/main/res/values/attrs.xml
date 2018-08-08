@@ -13,4 +13,35 @@
         <attr name="border_width" format="dimension" />
         <attr name="border_color" format="color" />
     </declare-styleable>
+    <!--下拉菜单-->
+    <declare-styleable name="DropDownMenu">
+        <attr name="ddunderlineColor" format="color"/>
+        <attr name="dddividerColor" format="color"/>
+        <attr name="ddtextSelectedColor" format="color"/>
+        <attr name="ddtextUnselectedColor" format="color"/>
+        <attr name="ddmenuBackgroundColor" format="color"/>
+        <attr name="ddmaskColor" format="color"/>
+        <attr name="ddmenuTextSize" format="dimension"/>
+        <attr name="ddmenuSelectedIcon" format="reference"/>
+        <attr name="ddmenuUnselectedIcon" format="reference"/>
+        <attr name="ddmenuMenuHeightPercent" format="float"/>
+        <attr name="dddividerHeight" format="dimension"></attr>
+        <attr name="ddmenuIconOrientation">
+            <flag name="left" value="0"/>
+            <flag name="top" value="1"/>
+            <flag name="right" value="2"/>
+            <flag name="bottom" value="3"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="dropDownMenu">
+        <attr name="underlineColor" format="color" />
+        <attr name="dividerColor" format="color" />
+        <attr name="textSelectColor" format="color" />
+        <attr name="textUnSelectColor" format="color" />
+        <attr name="menuBackgroundColor" format="color" />
+        <attr name="maskColor" format="color" />
+        <attr name="menuTextSize" format="dimension" />
+        <attr name="menuSelectedIcon" format="reference" />
+        <attr name="menuUnSelectedIcon" format="reference" />
+    </declare-styleable>
 </resources>

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MallActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="25dp"
@@ -66,17 +67,32 @@
                         android:layout_height="10dp"
                         android:layout_marginTop="5dp"
                         android:background="@color/t2"></View>
+                    <com.example.myapplication.view.dropdown.DropDownMenu
+                        android:id="@+id/dropdownmenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:dividerColor="@color/gray"
+                        app:maskColor="@color/mask_color"
+                        app:menuBackgroundColor="@color/white"
+                        app:menuSelectedIcon="@drawable/ic_drop_down_unselected"
+                        app:menuTextSize="14sp"
+                        app:menuUnSelectedIcon="@drawable/ic_drop_down_selected"
+                        app:textSelectColor="@color/gray"
+                        app:textUnSelectColor="@color/t2"
+                        app:underlineColor="@color/gray"
+                        >
+                    </com.example.myapplication.view.dropdown.DropDownMenu>
                 </android.support.design.widget.AppBarLayout>
                 <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                <com.example.myapplication.view.MyListView
+                    android:id="@+id/lv_show"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fillViewport="true"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
-                    <com.example.myapplication.view.MyListView
-                        android:id="@+id/lv_show"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"></com.example.myapplication.view.MyListView>
-                 </android.support.v4.widget.NestedScrollView>
+                    android:layout_height="match_parent"></com.example.myapplication.view.MyListView>
+            </android.support.v4.widget.NestedScrollView>
 
             </android.support.design.widget.CoordinatorLayout>
     <!--</LinearLayout>-->

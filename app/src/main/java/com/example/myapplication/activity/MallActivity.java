@@ -1,15 +1,18 @@
 package com.example.myapplication.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -23,7 +26,13 @@ import com.example.myapplication.utils.AdapterUtils;
 import com.example.myapplication.utils.ListViewItemUtils;
 import com.example.myapplication.utils.LocalImageView;
 import com.example.myapplication.view.MyGridView;
+import com.example.myapplication.view.dropdown.ConstellationAdapter;
+import com.example.myapplication.view.dropdown.DropDownMenu;
+import com.example.myapplication.view.dropdown.GirdDropDownAdapter;
+import com.example.myapplication.view.dropdown.ListDropDownAdapter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -48,11 +57,26 @@ public class MallActivity extends BaseActivity implements OnItemClickListener, A
     MyGridView gvShow;
     @BindView(R.id.ll_mall)
     LinearLayout llMall;
+    @BindView(R.id.dropdownmenu)
+    DropDownMenu dropdownmenu;
     private List<Integer> imglist;//轮播的数据源
     private List<GridviewObject> gridviewObjects;//Gridview数据源
     private GridviewAdapter gridviewAdapter;
     private ListviewAdapter listviewAdapter;
     private List<ListviewObject> listviewObjects;
+    private String headers[] = {"城市", "年龄", "性别", "星座"};
+    private List<View> popViews = new ArrayList<>();
+    private String citys[] = {"不限", "武汉", "北京", "上海", "成都", "广州", "深圳", "重庆", "天津", "西安", "南京", "杭州"};
+    private String ages[] = {"不限", "18岁以下", "18-22岁", "23-26岁", "27-35岁", "35岁以上"};
+    private String sexs[] = {"不限", "男", "女"};
+    private String constellations[] = {"不限", "白羊座", "金牛座", "双子座", "巨蟹座", "狮子座", "处女座", "天秤座", "天蝎座", "射手座", "摩羯座", "水瓶座", "双鱼座"};
+    private GirdDropDownAdapter cityAdapter;
+    private ListDropDownAdapter ageAdapter, sexAdapter;
+    private ConstellationAdapter constellationAdapter;
+    private ListView lvCity;
+    private ListView lvAge;
+    private ListView lvSex;
+    private GridView gv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +85,68 @@ public class MallActivity extends BaseActivity implements OnItemClickListener, A
         ButterKnife.bind(this);
         initView();
         initData();
+        initViews();
         initGridview();
         initListview();
         initItmClick();
     }
 
+    private void initViews() {
+        lvCity = new ListView(this);
+        cityAdapter = new GirdDropDownAdapter(this, Arrays.asList(citys));
+        lvCity.setDividerHeight(0);
+        lvCity.setAdapter(cityAdapter);
+
+        lvAge = new ListView(this);
+        ageAdapter = new ListDropDownAdapter(this, Arrays.asList(ages));
+        lvAge.setDividerHeight(0);
+        lvAge.setAdapter(ageAdapter);
+
+        lvSex = new ListView(this);
+        sexAdapter = new ListDropDownAdapter(this, Arrays.asList(sexs));
+        lvSex.setDividerHeight(0);
+        lvSex.setAdapter(sexAdapter);
+
+
+        gv = new GridView(this);
+        gv.setNumColumns(4);
+        gv.setHorizontalSpacing(4);
+        gv.setVerticalSpacing(4);
+        gv.setPadding(10, 10, 10, 10);
+        gv.setBackgroundColor(Color.WHITE);
+        constellationAdapter = new ConstellationAdapter(this, Arrays.asList(constellations));
+        gv.setAdapter(constellationAdapter);
+
+        lvCity.setOnItemClickListener(this);
+        lvAge.setOnItemClickListener(this);
+        lvSex.setOnItemClickListener(this);
+        gv.setOnItemClickListener(this);
+
+        popViews.add(lvCity);
+        popViews.add(lvAge);
+        popViews.add(lvSex);
+        popViews.add(gv);
+
+        ImageView contentView = new ImageView(this);
+        contentView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT));
+        contentView.setScaleType(ImageView.ScaleType.CENTER);
+
+        try {
+            dropdownmenu.setDropDownMenu(Arrays.asList(headers), popViews, contentView);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+    }
+    @Override
+    public void onBackPressed() {
+        if (dropdownmenu.isShowing()) {
+            dropdownmenu.closeMenu();
+        } else {
+            super.onBackPressed();
+        }
+    }
     private void initItmClick() {
         lvShow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -164,14 +245,14 @@ public class MallActivity extends BaseActivity implements OnItemClickListener, A
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
         Intent intent = null;
         switch (view.getId()) {
             case R.id.lv_show:
                 intent = new Intent(MallActivity.this, PayActivity.class);
-                Integer img = listviewObjects.get(i).getListview_iv();
-                String name = listviewObjects.get(i).getTv_name();
-                String price = listviewObjects.get(i).getTv_price();
+                Integer img = listviewObjects.get(position).getListview_iv();
+                String name = listviewObjects.get(position).getTv_name();
+                String price = listviewObjects.get(position).getTv_price();
                 intent.putExtra("img", img);
                 intent.putExtra("name", name);
                 intent.putExtra("price", price);
@@ -186,6 +267,26 @@ public class MallActivity extends BaseActivity implements OnItemClickListener, A
             default:
                 break;
         }
+        if (parent == lvCity) {
+            cityAdapter.setCheckItemPosition(position);
+            dropdownmenu.setTabText(0, position == 0 ? headers[0] : citys[position]);
+//            dropdownmenu.setImageResource(imagids[0]);
+        } else if (parent == lvAge) {
+            ageAdapter.setCheckItemPosition(position);
+            dropdownmenu.setTabText(1, position == 0 ? headers[1] : ages[position]);
+//            dropdownmenu.setImageResource(imagids[1]);
+        } else if (parent == lvSex) {
+            sexAdapter.setCheckItemPosition(position);
+            dropdownmenu.setTabText(2, position == 0 ? headers[2] : sexs[position]);
+//            dropDownMenu.setImageResource(imagids[2]);
+        } else if (parent == gv) {
+            constellationAdapter.setCheckItemPosition(position);
+            dropdownmenu.setTabText(3, position == 0 ? headers[3] : constellations[position]);
+//            dropdownmenu.setImageResource(imagids[3]);
+        } else {
+            Toast.makeText(this, "出错了！", Toast.LENGTH_SHORT).show();
+        }
+        dropdownmenu.closeMenu();
     }
 
 }
