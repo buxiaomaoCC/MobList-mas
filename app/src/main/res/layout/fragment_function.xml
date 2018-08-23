@@ -10,10 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:background="@color/t2"></LinearLayout>
-<Button
-    android:id="@+id/bt_mall"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="商城入口"
-    android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/bt_mall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="商城入口"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/bt_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="视频播放"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/bt_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="动画模式"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>

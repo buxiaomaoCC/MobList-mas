@@ -65,6 +65,13 @@
                     android:scheme="rong" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.VideoSourceActivity" />
+        <activity android:name=".activity.LiveActivity" />
+        <activity android:name=".activity.AnimationActivity"></activity>
+        <activity android:name=".activity.SkipActivity.FrameActivity"></activity>
+        <activity android:name=".activity.SkipActivity.WeiyiActivity"/>
+        <activity android:name=".activity.SkipActivity.RotateActivity"/>
+        <activity android:name=".activity.SkipActivity.TanchuActivity"/>
     </application>
 
 </manifest>

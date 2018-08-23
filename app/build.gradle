@@ -82,6 +82,13 @@ android {
 //            abortOnError false
 //        }
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
     allprojects {
         repositories {
             mavenCentral()
@@ -149,5 +156,17 @@ dependencies {
     implementation 'com.umeng.sdk:common:latest.integration'
     implementation 'com.umeng.sdk:analytics:latest.integration'
     implementation project(':IMKit')
-//    implementation project(':Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable_with_CallKit')
+    //    implementation project(':Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable_with_CallKit')
+    implementation files('libs/commons-codec-1.9.jar')
+    implementation files('libs/commons-logging-1.2.jar')
+    implementation files('libs/eventbus-1.0.1.jar')
+    implementation files('libs/fluent-hc-4.5.jar')
+    implementation files('libs/httpclient-4.5.jar')
+    implementation files('libs/httpclient-cache-4.5.jar')
+    implementation files('libs/httpclient-win-4.5.jar')
+    implementation files('libs/httpcore-4.4.1.jar')
+    implementation files('libs/httpmime-4.5.jar')
+    implementation files('libs/jna-4.1.0.jar')
+    implementation files('libs/jna-platform-4.1.0.jar')
+    implementation project(':vitamiolibrary')
 }
