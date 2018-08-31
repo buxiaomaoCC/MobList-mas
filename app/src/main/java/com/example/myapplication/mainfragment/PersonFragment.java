@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.activity.ConversationActivity;
+import com.example.myapplication.activity.DirectionActivity;
 import com.example.myapplication.activity.LuckyDrawActivity;
 import com.example.myapplication.activity.MainActivity;
 import com.example.myapplication.activity.MobIMActivity;
@@ -61,9 +62,11 @@ public class PersonFragment extends Fragment {
     }
 
     private void initItemClick() {
+
         lvShow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=null;
                 switch (i){
                     case 0:
                         showShare();
@@ -75,8 +78,12 @@ public class PersonFragment extends Fragment {
 //                        startActivity(new Intent(getContext(),MobIMActivity.class));
                         break;
                     case 2:
-                            Intent intent=new Intent(getContext(), LuckyDrawActivity.class);
-                            startActivity(intent);
+                        intent=new Intent(getContext(), LuckyDrawActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent=new Intent(getContext(), DirectionActivity.class);
+                        startActivity(intent);
                         break;
                 }
             }
@@ -88,6 +95,7 @@ public class PersonFragment extends Fragment {
         stringList.add("好友分享");
         stringList.add("我的客服");
         stringList.add("圆盘抽奖");
+        stringList.add("指南针");
         arrayAdapter=new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,stringList);
         lvShow.setAdapter(arrayAdapter);
     }

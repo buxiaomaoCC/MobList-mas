@@ -4,7 +4,6 @@ import android.animation.ValueAnimator;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +16,7 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LuckyDrawActivity extends BaseActivity {
 
@@ -39,6 +39,7 @@ public class LuckyDrawActivity extends BaseActivity {
     }
 
     private void initView() {
+        ivReturn.setImageDrawable(getResources().getDrawable(R.drawable.chuzuxiangqing));
         tvTitle.setText("圆盘抽奖");
     }
 
@@ -56,14 +57,14 @@ public class LuckyDrawActivity extends BaseActivity {
 
             @Override
             public void rotateBefore(ImageView goImg) {
-                AlertDialog.Builder builder=new AlertDialog.Builder(LuckyDrawActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(LuckyDrawActivity.this);
                 builder.setTitle("温馨提示");
                 builder.setMessage("确定要花100积分抽奖");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //模拟位置
-                        int position=new Random().nextInt(7)+1;
+                        int position = new Random().nextInt(7) + 1;
                         wfv.startRotate(position);
                     }
                 });
@@ -78,4 +79,8 @@ public class LuckyDrawActivity extends BaseActivity {
         });
     }
 
+    @OnClick(R.id.iv_return)
+    public void onViewClicked() {
+        finish();
+    }
 }
