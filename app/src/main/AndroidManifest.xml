@@ -35,13 +35,13 @@
         <activity android:name=".activity.MallActivity" />
         <activity android:name=".activity.PayActivity" />
         <activity android:name=".activity.SearchRecordActivity" />
-        <!--微信分享回调 -->
+        <!-- 微信分享回调 -->
         <activity
             android:name=".wxapi.WXEntryActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!-- 配置友盟申请的应用Appkey -->
         <!-- <meta-data -->
         <!-- android:name="UMENG_APPKEY" -->
@@ -53,10 +53,11 @@
 
         <activity android:name=".activity.BaseActivity" />
         <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".pay.zhifubaopay.H5PayDemoActivity"/>
+        <activity android:name=".pay.zhifubaopay.H5PayDemoActivity" />
         <activity android:name=".activity.ConversationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data
@@ -67,11 +68,12 @@
         </activity>
         <activity android:name=".activity.VideoSourceActivity" />
         <activity android:name=".activity.LiveActivity" />
-        <activity android:name=".activity.AnimationActivity"></activity>
-        <activity android:name=".activity.SkipActivity.FrameActivity"></activity>
-        <activity android:name=".activity.SkipActivity.WeiyiActivity"/>
-        <activity android:name=".activity.SkipActivity.RotateActivity"/>
-        <activity android:name=".activity.SkipActivity.TanchuActivity"/>
+        <activity android:name=".activity.AnimationActivity" />
+        <activity android:name=".activity.SkipActivity.FrameActivity" />
+        <activity android:name=".activity.SkipActivity.WeiyiActivity" />
+        <activity android:name=".activity.SkipActivity.RotateActivity" />
+        <activity android:name=".activity.SkipActivity.TanchuActivity" />
+        <activity android:name=".activity.LuckyDrawActivity"></activity>
     </application>
 
 </manifest>

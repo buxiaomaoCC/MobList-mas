@@ -121,7 +121,7 @@ MobSDK {
                 appKey "R03ozguZkaTUHWNg"
                 shareByAppClient true
             }
-            WechatMoments{
+            WechatMoments {
                 appId "wxa0cb993ebf35692f"
                 appSecret "fd7f6a231613918f06d0b08520477eb2"
                 shareByAppClient true
@@ -169,4 +169,5 @@ dependencies {
     implementation files('libs/jna-4.1.0.jar')
     implementation files('libs/jna-platform-4.1.0.jar')
     implementation project(':vitamiolibrary')
+    implementation project(':wheelsruflibrary')
 }
